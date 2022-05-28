@@ -25,12 +25,12 @@ class Sql {
     	$stmt->execute();
     }
 
-    public function excluiUsuario($nameUsuario) {
+    // public function excluiUsuario($nameUsuario) {
 
-    	$conn = new PDO("mysql:dbname=db_cadastrousuario;host=127.0.0.1", "root", "");
+    // 	$conn = new PDO("mysql:dbname=db_cadastrousuario;host=127.0.0.1", "root", "");
 
-    	$stmt = $conn->prepare("DELETE FROM tb_usuarios WHERE usernameusuario = "$nameUsuario";");
-    }
+    // 	$stmt = $conn->prepare("DELETE FROM tb_usuarios WHERE usernameusuario = "$nameUsuario";");
+    // }
 
 }
 
