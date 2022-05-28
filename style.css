@@ -157,17 +157,17 @@ main {
     font-weight: normal;
 }
 
-form#cadastro-usuario {
+form.form-usuario {
     margin: 5% 0;
 }
 
 
 
-form#cadastro-usuario>label {
+form.form-usuario>label {
     font-family: var(--font-title);
 }
 
-form#cadastro-usuario>input[type="text"],
+form.form-usuario>input[type="text"],
 input[type="password"],
 input[type="email"] {
     display: block;
