@@ -1,0 +1,9 @@
+###NOME DO BANCO: db_cadastrousuario;
+
+CREATE TABLE tb_usuarios (
+	idusuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    usernameusuario VARCHAR(100),
+    passwordussuario VARCHAR(100),
+    emailusuario VARCHAR(100),
+    hourcadastro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
+);
