@@ -251,10 +251,11 @@ span {
 
 /* Classes */
 
-.fa-code,
 .fa-user,
 .fa-pencil,
-.fa-file-circle-xmark {
+.fa-file-circle-xmark,
+.fa-folder-open,
+.fa-gear {
     font-size: 1.6rem;
 }
 
