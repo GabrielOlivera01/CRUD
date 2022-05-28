@@ -7,11 +7,11 @@ class Sql {
         $conn = new PDO("mysql:dbname=db_cadastrousuario;host=127.0.0.1", "root", "");
     }
 
-    public function cadastraUsuario($username, $password, $email, $userCadastro = ""){
+    public function cadastraUsuario($username, $password, $email){
 
         $conn = new PDO("mysql:dbname=db_cadastrousuario;host=127.0.0.1", "root", "");
 
-        $stmt = $conn->prepare("INSERT INTO tb_usuarios (nameusuario, usernameusuario, passwordussuario, emailusuario) VALUES('$userCadastro', '$username', '$password', '$email');");
+        $stmt = $conn->prepare("INSERT INTO tb_usuarios (usernameusuario, passwordussuario, emailusuario) VALUES('$username', '$password', '$email');");
 
         $stmt->execute();
     }
