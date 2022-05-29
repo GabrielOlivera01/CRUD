@@ -152,7 +152,7 @@ main {
     display: none;
 }
 
-#title-forms {
+.title-forms {
     font-family: var(--font-title);
     font-weight: normal;
 }

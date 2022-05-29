@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- Biblioteca de Icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -66,7 +66,7 @@
     <main>
         <!-- Section de Cadastro -->
         <section id="sec-forms-cadastro" class="sec-forms">
-            <h1 id="title-forms">Cadastro de Usuário</h1>
+            <h1 class="title-forms">Cadastro de Usuário</h1>
             <form class="form-usuario" id="cadastro-usuario" action="cadastro.php" method="post">
                 <label for="caduser">Nome de Usuário</label>
                 <input id="caduser" name="caduser" type="text" required>
@@ -80,7 +80,7 @@
 
         <!-- Section de Edição -->
         <section id="sec-forms-edicao" class="sec-forms">
-            <h1 id="title-forms">Edição de Usuário</h1>
+            <h1 class="title-forms">Edição de Usuário</h1>
             <form class="form-usuario" id="edicao-usuario" action="edicao.php" method="post">
                 <label for="edituser">Usuário para Edição</label>
                 <input id="edituser" name="edituser" type="text" required>
@@ -96,7 +96,7 @@
 
         <!-- Section de Exclusão -->
         <section id="sec-forms-exclusao" class="sec-forms">
-            <h1 id="title-forms">Exclusao de Usuário</h1>
+            <h1 class="title-forms">Exclusao de Usuário</h1>
             <form class="form-usuario" id="exclusao-usuario" action="exclusao.php" method="post">
                 <label for="caduser">Nome de Usuário</label>
                 <input id="caduser" name="caduser" type="text" required>
@@ -111,28 +111,40 @@
         <!-- <span>Redes Sociais</span> -->
         <ul id="rede-sociais">
             <li>
-                <abbr title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></abbr>
+                <abbr title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </abbr>
             </li>
             <li>
-                <abbr title="Discord"><i class="fa-brands fa-discord"></i></abbr>
+                <abbr title="Discord">
+                    <i class="fa-brands fa-discord"></i>
+                </abbr>
             </li>
             <li>
-                <abbr title="Telegram"><i class="fa-brands fa-telegram"></i></abbr>
+                <abbr title="Telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </abbr>
             </li>
             <li>
-                <abbr title="Instagram"><i class="fa-brands fa-instagram"></i></abbr>
+                <abbr title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </abbr>
             </li>
             <li>
-                <abbr title="Linked In"><i class="fa-brands fa-linkedin-in"></i></abbr>
+                <abbr title="Linked In">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </abbr>
             </li>
             <li>
-                <abbr title="GitHub"><i class="fa-brands fa-github"></i></abbr>
+                <abbr title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </abbr>
             </li>
         </ul>
         <!-- <span id="nome-dev">Developer by Gabriel Oliveira</span> -->
     </footer>
 
-    <script src="javascript.js"></script>
+    <script src="/js/javascript.js"></script>
 </body>
 
 </html>
