@@ -28,7 +28,7 @@ body {
 
 body {
     display: grid;
-    grid-template-columns: 1fr 10fr;
+    grid-template-columns: .5fr 20fr;
     grid-template-rows: 2fr 10fr 1fr;
     grid-template-areas:
         "he he"
@@ -41,6 +41,7 @@ header {
     background-color: #0466C8;
     padding: 18px;
     box-shadow: 5px -10px 23px 9px black;
+    /* min-height: 100px; */
 }
 
 header>h1 {
@@ -53,7 +54,6 @@ header>h1 {
 
 menu {
     grid-area: me;
-    /* background-color: lightgreen; */
     display: flex;
     flex-direction: column;
 }
@@ -135,9 +135,9 @@ nav {
 }
 
 main {
-    grid-area: ma;
-    width: 100vw;
     /* background-color: bisque; */
+    grid-area: ma;
+    /* width: 100vw; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,7 +148,7 @@ main {
     height: 85%;
     width: 80%;
     padding: 2%;
-    margin: 0 70px;
+    margin: 0 10px;
     display: none;
 }
 
@@ -158,10 +158,8 @@ main {
 }
 
 form.form-usuario {
-    margin: 5% 0;
+    margin: 2% 0;
 }
-
-
 
 form.form-usuario>label {
     font-family: var(--font-title);
