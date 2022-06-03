@@ -12,4 +12,5 @@ $obj->cadastraUsuario($username, $password, $email);
 
 echo "Cadastro efetuado com sucesso!";
 
+
 ?>

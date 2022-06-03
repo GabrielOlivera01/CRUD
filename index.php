@@ -1,3 +1,17 @@
+<?php
+
+    require_once "config.php";
+
+    $usuario = "User.Teste";
+    $senha = "Senha123";
+    $email = "mail.teste@email.com";
+
+    $obj = new Sql();
+    $listaReg = $obj->listaUsuariosCadastrados();
+
+    // echo json_encode($listaReg);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,6 +30,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/solid.min.css"
         integrity="sha512-qzgHTQ60z8RJitD5a28/c47in6WlHGuyRvMusdnuWWBB6fZ0DWG/KyfchGSBlLVeqAz+1LzNq+gGZkCSHnSd3g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- BootStrap -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -52,7 +68,7 @@
                 </li>
                 <li>
                     <abbr title="Listar Usuários">
-                        <i class="fa-solid fa-folder-open"></i>
+                        <i class="fa-solid fa-folder-open" onclick="showSectionRead()"></i>
                     </abbr>
                 </li>
                 <li>
@@ -105,6 +121,44 @@
                 <input id="cadpass" name="cadpass" type="password" required>
                 <input id="bt-excluir" type="submit" value="Excluir">
             </form>
+        </section>
+
+        <!-- Section de read -->
+        <section id="sec-read" class="">
+            <table id="usuarios-cadastrados" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Senha</th>
+                        <th scope="col">E-mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                    foreach ($listaReg as $key => $value) {
+                        
+                        echo "<tr>";
+                        echo '<th scope="row">'.$key.'</th>';
+
+                        echo '<td>';
+                        print_r($listaReg[$key]['usernameusuario']);
+                        echo '</td>';
+
+                        echo '<td>';
+                        print_r($listaReg[$key]['passwordussuario']);
+                        echo '</td>';
+
+                        echo '<td>';
+                        print_r($listaReg[$key]['emailusuario']);
+                        echo '</td>';
+
+                        echo "</tr>";
+                    }
+                ?>
+                </tbody>
+            </table>
         </section>
     </main>
 
