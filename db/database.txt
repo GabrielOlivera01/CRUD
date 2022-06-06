@@ -1,4 +1,4 @@
-###NOME DO BANCO: db_cadastrousuario;
+###NOME DO BANCO: CRUD;
 
 CREATE TABLE tb_usuarios (
 	idusuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,

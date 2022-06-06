@@ -284,9 +284,19 @@ span {
 #sec-read {
     display: none;
     /* display: block; */
+    max-height: 400px;
+    overflow: scroll;
 }
 
 /* Table Style */
+
+table#usuarios-cadastrados {
+    /* background-color: red; */
+    font-family: var(--font-head-table);
+    margin: 5px;
+    max-height: 400px;
+    overflow: scroll;
+}
 
 table,
 thead,
@@ -297,11 +307,6 @@ tr,
 th,
 td {
     /* border: #000000 solid 1px; */
-}
-
-table#usuarios-cadastrados {
-    /* background-color: red; */
-    font-family: var(--font-head-table);
 }
 
 thead {

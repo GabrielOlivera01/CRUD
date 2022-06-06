@@ -2,9 +2,9 @@
 
     require_once "config.php";
 
-    $usuario = "User.Teste";
-    $senha = "Senha123";
-    $email = "mail.teste@email.com";
+    // $usuario = "User.Teste";
+    // $senha = "Senha123";
+    // $email = "mail.teste@email.com";
 
     $obj = new Sql();
     $listaReg = $obj->listaUsuariosCadastrados();
@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Criação do meu primeiro sistema CRUD">
     <title>Document</title>
+    <!-- CSS Principal -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- Biblioteca de Icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -115,10 +116,12 @@
         <section id="sec-forms-exclusao" class="sec-forms">
             <h1 class="title-forms">Exclusao de Usuário</h1>
             <form class="form-usuario" id="exclusao-usuario" action="exclusao.php" method="post">
-                <label for="caduser">Nome de Usuário</label>
-                <input id="caduser" name="caduser" type="text" required>
-                <label for="cadpass">Senha</label>
-                <input id="cadpass" name="cadpass" type="password" required>
+                <label for="deluser">Nome de Usuário
+                    <input id="deluser" name="deluser" type="text" required>
+                </label>
+                <label for="delpass">Senha
+                    <input id="delpass" name="delpass" type="password" required>
+                </label>
                 <input id="bt-excluir" type="submit" value="Excluir">
             </form>
         </section>

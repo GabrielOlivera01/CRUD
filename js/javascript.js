@@ -14,13 +14,12 @@ btHamburguer.addEventListener('click', () => {
     stack03.classList.toggle('stack-03')
 })
 
-
+var sectionFormCadastro = document.getElementById('sec-forms-cadastro')
+var sectionFormEdicao = document.getElementById('sec-forms-edicao')
+var sectionFormExclusao = document.getElementById('sec-forms-exclusao')
+var sectionRead = document.getElementById('sec-read')
 
 function showSectionCadastro() {
-    let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
-    let sectionFormEdicao = document.getElementById('sec-forms-edicao')
-    let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
-    let sectionRead = document.getElementById('sec-read')
 
     sectionFormCadastro.style.display = 'block'
     sectionFormEdicao.style.display = 'none'
@@ -29,10 +28,10 @@ function showSectionCadastro() {
 }
 
 function showSectionEdicao() {
-    let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
-    let sectionFormEdicao = document.getElementById('sec-forms-edicao')
-    let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
-    let sectionRead = document.getElementById('sec-read')
+    // let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
+    // let sectionFormEdicao = document.getElementById('sec-forms-edicao')
+    // let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
+    // let sectionRead = document.getElementById('sec-read')
 
     sectionFormCadastro.style.display = 'none'
     sectionFormEdicao.style.display = 'block'
@@ -41,10 +40,10 @@ function showSectionEdicao() {
 }
 
 function showSectionExclusao() {
-    let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
-    let sectionFormEdicao = document.getElementById('sec-forms-edicao')
-    let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
-    let sectionRead = document.getElementById('sec-read')
+    // let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
+    // let sectionFormEdicao = document.getElementById('sec-forms-edicao')
+    // let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
+    // let sectionRead = document.getElementById('sec-read')
 
     sectionFormCadastro.style.display = 'none'
     sectionFormEdicao.style.display = 'none'
@@ -52,14 +51,12 @@ function showSectionExclusao() {
     sectionRead.style.display = 'none'
 }
 
-function showSectionRead() {
+function showSectionRead() {    
 
-    console.log('chamou a função')
-
-    let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
-    let sectionFormEdicao = document.getElementById('sec-forms-edicao')
-    let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
-    let sectionRead = document.getElementById('sec-read')
+    // let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
+    // let sectionFormEdicao = document.getElementById('sec-forms-edicao')
+    // let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
+    // let sectionRead = document.getElementById('sec-read')
 
     sectionFormCadastro.style.display = 'none'
     sectionFormEdicao.style.display = 'none'
