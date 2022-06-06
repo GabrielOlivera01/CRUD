@@ -27,7 +27,7 @@ class Sql extends PDO {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function atualizaDados($usuarioEdicao){
+    public function atualizaDados($usuarioEdicao, $nomeEdicao = "", $senhaEdicao = "", $emailEdicao = ""){
 
         $stmt = $this->conn->prepare("SELECT * FROM tb_usuarios WHERE usernameusuario = :usuarioEdicao;");
         $stmt->bindValue(':usuarioEdicao', $usuarioEdicao);
@@ -37,17 +37,20 @@ class Sql extends PDO {
         $idUserUpdate = $dataUserUpdate[0]['idusuario'];
 
         // Atualiza Nome
-        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET usernameusuario = 'NOVO.USERNAME' WHERE idusuario = :idUserUpdate;");
-        $stmt-bindValue(':idUserUpdate', $idUserUpdate);
+        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET usernameusuario = :nomeEdicao WHERE idusuario = :idUserUpdate;");
+        $stmt->bindValue(':nomeEdicao', $nomeEdicao);
+        $stmt->bindValue(':idUserUpdate', $idUserUpdate);
         $stmt->execute();
         
         // Atualiza Senha
-        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET passwordussuario = 'NOVO PASSWORD' WHERE idusuario = :idUserUpdate;");
+        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET passwordussuario = :senhaEdicao WHERE idusuario = :idUserUpdate;");
+        $stmt->bindValue(':senhaEdicao', $senhaEdicao);
         $stmt->bindValue(':idUserUpdate', $idUserUpdate);
         $stmt->execute();
 
         // Atualiza E-mail
-        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET emailusuario = 'EMAIL.NEW@EMAIL.COM' WHERE idusuario = :idUserUpdate;");
+        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET emailusuario = :emailEdicao WHERE idusuario = :idUserUpdate;");
+        $stmt->bindValue(':emailEdicao', $emailEdicao);
         $stmt->bindValue(':idUserUpdate', $idUserUpdate);
         $stmt->execute();
 

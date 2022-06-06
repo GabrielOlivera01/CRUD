@@ -8,7 +8,7 @@ $senhaEdicao = $_POST["editsenha"];
 $emailEdicao = $_POST["editemail"];
 
 $obj = new Sql();
-$dataUserUpdate = $obj->atualizaDados($usuarioEdicao);
+$dataUserUpdate = $obj->atualizaDados($usuarioEdicao, $nomeEdicao, $senhaEdicao, $emailEdicao);
 
 echo $dataUserUpdate;
 
