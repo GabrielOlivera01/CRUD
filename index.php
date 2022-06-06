@@ -116,12 +116,10 @@
         <section id="sec-forms-exclusao" class="sec-forms">
             <h1 class="title-forms">Exclusao de Usuário</h1>
             <form class="form-usuario" id="exclusao-usuario" action="exclusao.php" method="post">
-                <label for="deluser">Nome de Usuário
-                    <input id="deluser" name="deluser" type="text" required>
-                </label>
-                <label for="delpass">Senha
-                    <input id="delpass" name="delpass" type="password" required>
-                </label>
+                <label for="deluser">Nome de Usuário</label>
+                <input id="deluser" name="deluser" type="text" required>
+                <label for="delpass">Senha</label>
+                <input id="delpass" name="delpass" type="password" required>
                 <input id="bt-excluir" type="submit" value="Excluir">
             </form>
         </section>

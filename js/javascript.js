@@ -28,10 +28,6 @@ function showSectionCadastro() {
 }
 
 function showSectionEdicao() {
-    // let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
-    // let sectionFormEdicao = document.getElementById('sec-forms-edicao')
-    // let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
-    // let sectionRead = document.getElementById('sec-read')
 
     sectionFormCadastro.style.display = 'none'
     sectionFormEdicao.style.display = 'block'
@@ -40,10 +36,6 @@ function showSectionEdicao() {
 }
 
 function showSectionExclusao() {
-    // let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
-    // let sectionFormEdicao = document.getElementById('sec-forms-edicao')
-    // let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
-    // let sectionRead = document.getElementById('sec-read')
 
     sectionFormCadastro.style.display = 'none'
     sectionFormEdicao.style.display = 'none'
@@ -51,12 +43,7 @@ function showSectionExclusao() {
     sectionRead.style.display = 'none'
 }
 
-function showSectionRead() {    
-
-    // let sectionFormCadastro = document.getElementById('sec-forms-cadastro')
-    // let sectionFormEdicao = document.getElementById('sec-forms-edicao')
-    // let sectionFormExclusao = document.getElementById('sec-forms-exclusao')
-    // let sectionRead = document.getElementById('sec-read')
+function showSectionRead() {
 
     sectionFormCadastro.style.display = 'none'
     sectionFormEdicao.style.display = 'none'
