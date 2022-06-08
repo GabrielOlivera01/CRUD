@@ -2,10 +2,13 @@
 
 require_once "config.php";
 
-$idUser = $_POST['deluser'];
+$username = $_POST['deluser'];
+$password = $_POST['delpass'];
 
 $obj = new Sql();
-$obj->deletaUsuario($idUser);
+$alert = $obj->deletaUsuario($username, $password);
 
+echo "<script>alert('".$alert."')</script>";
+echo "<script>location.href = 'index.php'</script>";
 
 ?>

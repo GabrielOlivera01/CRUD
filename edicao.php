@@ -10,6 +10,8 @@ $emailEdicao = $_POST["editemail"];
 $obj = new Sql();
 $dataUserUpdate = $obj->atualizaDados($usuarioEdicao, $nomeEdicao, $senhaEdicao, $emailEdicao);
 
-echo $dataUserUpdate;
+print_r($dataUserUpdate);
+$msg = "Atualização concluida com sucesso!";
+echo $msg;
 
 ?>

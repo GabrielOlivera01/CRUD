@@ -11,12 +11,23 @@ class Sql extends PDO {
 
     public function cadastraUsuario($username, $password, $email){
 
-        $stmt = $this->conn->prepare('INSERT INTO tb_usuarios (usernameusuario, passwordussuario, emailusuario) VALUES (:username, :passuser, :email);');
+        $res = $this->validaUsername($username);
+
+        if ($res !== true) {
+
+            $stmt = $this->conn->prepare('INSERT INTO tb_usuarios (usernameusuario, passwordussuario, emailusuario) VALUES (:username, :passuser, :email);');
         
-        $stmt->bindValue(':username', $username);
-        $stmt->bindValue(':passuser', $password);
-        $stmt->bindValue(':email', $email);
-        $stmt->execute();
+            $stmt->bindValue(':username', $username);
+            $stmt->bindValue(':passuser', $password);
+            $stmt->bindValue(':email', $email);
+            $stmt->execute();
+
+            echo "<script>alert('Cadastro efetuado com sucesso!')</script>";
+        } else {
+            echo "<script>alert('Nome de usuário não disponivel')</script>";
+        }
+        
+        echo "<script>location.href = 'index.php'</script>";
     }
 
     public function listaUsuariosCadastrados(){
@@ -54,23 +65,55 @@ class Sql extends PDO {
         $stmt->bindValue(':idUserUpdate', $idUserUpdate);
         $stmt->execute();
 
-        return "Atualização efetuada com sucesso!";
     }
 
-    public function deletaUsuario($nomeUserDelet){
+    public function deletaUsuario($username, $password){
 
-        $stmt = $this->conn->prepare("SELECT * FROM tb_usuarios WHERE usernameusuario = :nomeUserDelet;");
-        $stmt->bindValue(':nomeUserDelet', $nomeUserDelet);
-        $stmt->execute();
+        $res = $this->validaUsername($username);
 
-        $dataUserDelet = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $idUserDelet = $dataUserDelet[0]['idusuario'];
+        if ($res !== true) {
+            $alert = "Nome de usuário incorreto ou inexistente";   
+        }else{
 
-        $stmt = $this->conn->prepare("DELETE FROM tb_usuarios WHERE idusuario = :id;");
-        $stmt->bindValue(':id', $idUserDelet);
-        $stmt->execute();
+            $stmt = $this->conn->prepare("SELECT * FROM tb_usuarios WHERE usernameusuario = :username;");
+            $stmt->bindValue(':username', $username);
+            $stmt->execute();
 
-        echo "Usuário excluido com sucesso!";
+            $dataUserDelet = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $idUserDelet = $dataUserDelet[0]['idusuario'];
+            $nameUsuario = $dataUserDelet[0]["usernameusuario"];
+            $passUserDelet = $dataUserDelet[0]['passwordussuario'];
+
+            if ($username == $nameUsuario && $password == $passUserDelet){
+                $stmt = $this->conn->prepare("DELETE FROM tb_usuarios WHERE idusuario = :id;");
+                $stmt->bindValue(':id', $idUserDelet);
+                $stmt->execute();
+                $alert = "Usuário excluido com sucesso!";
+            }else{
+                $alert = "Senha incorreta!";
+            }
+        }
+
+        return $alert;
+    }
+
+    public function validaUsername($username) {
+        
+        $listUsersCad = $this->listaUsuariosCadastrados();
+        
+        $res = false;
+
+        foreach ($listUsersCad as $key => $value) {
+
+            // echo json_encode($listUsersCad);
+            
+            if ($listUsersCad[$key]['usernameusuario'] == $username) {
+                $res = true;
+            }
+        }
+        
+        return $res;
     }
 }
 
