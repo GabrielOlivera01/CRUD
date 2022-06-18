@@ -65,6 +65,9 @@ class Sql extends PDO {
         $stmt->bindValue(':idUserUpdate', $idUserUpdate);
         $stmt->execute();
 
+        $alert = "Atualização concluida com sucesso!";
+        return $alert;
+
     }
 
     public function deletaUsuario($username, $password){
@@ -85,7 +88,7 @@ class Sql extends PDO {
             $nameUsuario = $dataUserDelet[0]["usernameusuario"];
             $passUserDelet = $dataUserDelet[0]['passwordussuario'];
 
-            if ($username == $nameUsuario && $password == $passUserDelet){
+            if (strcasecmp($username, $nameUsuario) == 0 && strcasecmp($password, $passUserDelet) == 0){
                 $stmt = $this->conn->prepare("DELETE FROM tb_usuarios WHERE idusuario = :id;");
                 $stmt->bindValue(':id', $idUserDelet);
                 $stmt->execute();
@@ -108,13 +111,50 @@ class Sql extends PDO {
 
             // echo json_encode($listUsersCad);
             
-            if ($listUsersCad[$key]['usernameusuario'] == $username) {
+            if (strcasecmp($listUsersCad[$key]['usernameusuario'], $username) == 0) {
                 $res = true;
             }
         }
         
         return $res;
     }
+
+    public function selectDataUser($usuario){
+
+        $retorno = false;
+        $res = $this->validaUsername($usuario);
+
+        if ($res == true) {
+            $stmt = $this->conn->prepare("SELECT * FROM tb_usuarios WHERE usernameusuario = :usuario");
+            $stmt->bindValue(':usuario', $usuario);
+            $stmt->execute();
+            $retorno = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $retorno;
+    }
+
+    public function validaLogin($usuario, $senha){
+        
+        $resLogin = false;
+        $dataUser = $this->selectDataUser($usuario);
+        
+        if (strcasecmp($dataUser[0]['usernameusuario'], $usuario) == 0 && strcasecmp($dataUser[0]['passwordussuario'], $senha) == 0) {
+            $resLogin = true;    
+        }
+        
+        return $resLogin;
+    }
+
+    public function verificaPrivilegio($usuario){
+
+        $dataUsuario = $this->selectDataUser($usuario);
+        $privilegio = $dataUsuario[0]['privilegio']; 
+        
+        return $privilegio;
+
+    }
+    
 }
 
 ?>

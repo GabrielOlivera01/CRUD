@@ -8,6 +8,7 @@
 :root {
     --font-title: 'Open Sans', 'Nunito Sans', sans-serif;
     --font-head-table: 'Poppins', 'Raleway', 'Open Sans', sans-serif;
+    --main-color-destac: #0466C8;
 }
 
 * {
@@ -42,18 +43,54 @@ body {
 
 header {
     grid-area: he;
-    background-color: #0466C8;
+    background-color: var(--main-color-destac);
     padding: 18px;
     box-shadow: 5px -10px 23px 9px black;
     /* min-height: 100px; */
 }
 
-header>h1 {
-    height: 100%;
+.l-header {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.l-header__box__left {
+    /* background: yellow; */
+    flex-basis: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.l-header__box__rigth {
+    /* background: yellow; */
+    flex-basis: 20%;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.main-title,
+#usuario-login,
+#usuario-log-out {
+    color: white;
+}
+
+#usuario-login,
+#usuario-log-out {
+    cursor: pointer;
+}
+
+#usuario-log-out {
+    font-size: 1.6rem;
+    display: none;
+}
+
+label[for="usuario-login"] {
+    color: #ffffff;
+    padding-left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 menu {
@@ -266,7 +303,7 @@ span {
     padding: 2px;
 }
 
-.fa-font-awesome {
+.fa-cube {
     font-size: 2rem;
     color: #ffffff;
 }
@@ -283,30 +320,14 @@ span {
 
 #sec-read {
     display: none;
-    /* display: block; */
+    overflow: auto;
     max-height: 400px;
-    overflow: scroll;
 }
 
 /* Table Style */
-
 table#usuarios-cadastrados {
-    /* background-color: red; */
     font-family: var(--font-head-table);
     margin: 5px;
-    max-height: 400px;
-    overflow: scroll;
-}
-
-table,
-thead,
-tr,
-th,
-tbody,
-tr,
-th,
-td {
-    /* border: #000000 solid 1px; */
 }
 
 thead {
@@ -324,8 +345,15 @@ th {
 
 th[scope="col"] {
     width: 60px;
+    position: sticky;
+    top: 0;
+    background-color: black;
 }
 
 th[scope="row"] {
     height: 50px;
+}
+
+.not-text-decoration {
+    text-decoration: none;
 }

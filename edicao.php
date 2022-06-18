@@ -10,8 +10,8 @@ $emailEdicao = $_POST["editemail"];
 $obj = new Sql();
 $dataUserUpdate = $obj->atualizaDados($usuarioEdicao, $nomeEdicao, $senhaEdicao, $emailEdicao);
 
-print_r($dataUserUpdate);
-$msg = "Atualização concluida com sucesso!";
-echo $msg;
+$alert = "Atualização concluida com sucesso!";
+echo "<script>window.alert('".$alert."')</script>";
+echo "<script>window.location = 'index.php'</script>"
 
 ?>

@@ -49,3 +49,15 @@ function showSectionRead() {
     sectionFormExclusao.style.display = 'none'
     sectionRead.style.display = 'block'
 }
+
+
+let iconUserLogado = document.getElementById("usuario-login");
+let iconLogOut = document.getElementById('usuario-log-out');
+iconUserLogado.addEventListener('mouseenter', () => {
+    iconUserLogado.style.display = 'none';
+    iconLogOut.style.display = 'block';
+});
+iconUserLogado.addEventListener('mouseout', () => {
+    iconLogOut.style.display = 'none';
+    iconUserLogado.style.display = 'block';
+});
