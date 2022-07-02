@@ -1,18 +1,4 @@
-@charset "UTF-8";
-
-:root {
-    /* --destac-color: #7B2CBF; */
-    --destac-color: #0466C8;
-    --black-color: #000000;
-    --white-color: #ffffff;
-    --gray-color: #E9ECEF;
-    /* https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8 */
-    /* https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
-    /* https://coolors.co/palette/ede0d4-e6ccb2-ddb892-b08968-7f5539-9c6644 */
-    /* https://coolors.co/palette/10002b-240046-3c096c-5a189a-7b2cbf-9d4edd-c77dff-e0aaff */
-    /* https://coolors.co/palette/e3f2fd-bbdefb-90caf9-64b5f6-42a5f5-2196f3-1e88e5-1976d2-1565c0-0d47a1 */
-}
-
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -25,21 +11,21 @@ body {
     width: 100%;
 }
 
+/* Style */
 body {
-    /* background-color: yellow; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 5fr .8fr;
     grid-template-areas:
-        "hea hea"
-        "mai mai"
-        "fot fot"
+        "he he"
+        "ma ma"
+        "fo fo"
     ;
 }
 
 .l-header {
-    background-color: var(--destac-color);
-    grid-area: hea;
+    background-color: var(--main-color-destac);
+    grid-area: he;
     padding: 0 0 0 30px;
     box-shadow: 2px 5px 13px -1px rgba(0, 0, 0, 0.527);
     display: flex;
@@ -60,8 +46,12 @@ body {
     align-items: center;
 }
 
+.l-header__box__left__title {
+    color: var(--white-color);
+    margin-left: 10px;
+}
+
 .l-header__box__rigth {
-    /* background-color: #000000; */
     width: 25%;
     padding: 10px;
     justify-content: center;
@@ -74,7 +64,6 @@ body {
     font-size: 1.2rem;
     list-style: none;
     color: #ffffff;
-    /* background-color: #000000; */
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -91,15 +80,15 @@ body {
     color: #ffffffc9;
 }
 
-main {
-    grid-area: mai;
+.l-main {
+    grid-area: ma;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-#login {
+section#login {
     background-color: var(--gray-color);
     width: 400px;
     height: 440px;
@@ -108,24 +97,7 @@ main {
     margin: 10px 0;
 }
 
-footer {
-    grid-area: fot;
-    background-color: var(--black-color);
-}
-
-/* Class Icons*/
-
-.fa-cube {
-    font-size: 2.6rem;
-    color: var(--white-color);
-}
-
-.main-title {
-    color: var(--white-color);
-    margin-left: 10px;
-}
-
-.login-logo {
+div.login-logo {
     height: 140px;
     display: flex;
     justify-content: center;
@@ -134,11 +106,10 @@ footer {
 
 #login-icon {
     font-size: 4rem;
-    color: var(--destac-color);
+    color: var(--main-color-destac);
 }
 
 #login-form {
-    /* background-color: yellow; */
     padding: 20px;
     height: 300px;
     display: flex;
@@ -159,9 +130,23 @@ input[name="senha"] {
     border-radius: 4px;
     margin: 0 0 10px 0;
     border-style: solid;
-    border-color: var(--destac-color);
+    border-color: var(--main-color-destac);
     font-size: 1.2rem;
     padding-left: 15px;
+}
+
+input[name="usuario"]:focus,
+input[name="senha"]:focus {
+    border: solid 2px var(--main-color-destac);
+    outline: none;
+}
+
+div.login-controls {
+    width: 85%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #bt-login {
@@ -172,51 +157,12 @@ input[name="senha"] {
     text-align: center;
     font-size: 1.1rem;
     border-style: solid;
-    border-color: var(--destac-color);
+    border-color: var(--main-color-destac);
+    cursor: pointer;
 }
 
-.circle {
-    background-color: var(--destac-color);
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-}
-
-/* .circle-m {
-    background-color: var(--gray-color);
-    height: 54px;
-    width: 54px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-#usuario-login {
-    color: var(--white-color);
-    font-size: 1.6rem;
-}
-
-label[for="usuario-login"] {
-    color: var(--white-color);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.controls {
-    width: 85%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.fa-eye-slash,
-.fa-eye {
-    display: flex;
-    flex-direction: row-reverse;
+section#cadastro {
+    display: none;
 }
 
 .form-cadastro {
@@ -236,7 +182,13 @@ label[for="usuario-login"] {
     font-size: 1.1rem;
     margin: 2% 0;
     padding-left: 2%;
-    border: solid 2px var(--destac-color);
+    border: solid 2px var(--main-color-destac);
+    border-radius: 4px;
+}
+
+.form-cadastro__input:focus {
+    border: solid 2px var(--main-color-destac);
+    outline: .5px;
 }
 
 #bt-cadastrar {
@@ -245,20 +197,14 @@ label[for="usuario-login"] {
     width: 50%;
     font-size: 1.1rem;
     margin: 3% auto;
-    border: solid 2px var(--destac-color);
-}
-
-
-
-/*==========Classes Abstratas===========*/
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.border-rad {
+    border: solid 2px var(--main-color-destac);
     border-radius: 4px;
+    cursor: pointer;
 }
 
-/*=====================================*/
+
+/* Icon Class */
+.fa-cube {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}

@@ -1,0 +1,54 @@
+footer {
+    grid-area: fo;
+    background-color: var(--black-color);
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul.rede-sociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    flex-basis: 100%;
+    margin: 10px;
+}
+
+.footer__redes__sociais__item {
+    height: 40px;
+    width: 40px;
+    margin: -15px 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__redes_sociais__icon {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.footer__redes__sociais__item:hover>.footer__redes__sociais__desc>.footer__redes_sociais__icon>i {
+    font-size: 2rem;
+    animation: shake infinite 1s;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(35deg);
+        transition: 1s;
+    }
+
+    50% {
+        transform: rotate(-50deg);
+        transition: 1s;
+    }
+
+    100% {
+        transform: rotate(35deg);
+        transition: 1s;
+    }
+
+}

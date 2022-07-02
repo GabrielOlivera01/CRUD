@@ -1,7 +1,8 @@
+//Adiciona a class que faz a animação de 'X' e expande a largura do menu
 let btHamburguer = document.getElementById('drop-menu')
 btHamburguer.addEventListener('click', () => {
 
-    btHamburguer.classList.toggle('drop-menu')
+    btHamburguer.classList.toggle('expande-menu')
 
     let stack01 = document.getElementById('stack01')
     stack01.classList.toggle('stack-01')
@@ -13,6 +14,7 @@ btHamburguer.addEventListener('click', () => {
     stack03.classList.toggle('stack-03')
 })
 
+//Exibe e oculta as sections
 var sectionFormCadastro = document.getElementById('sec-forms-cadastro')
 var sectionFormEdicao = document.getElementById('sec-forms-edicao')
 var sectionFormExclusao = document.getElementById('sec-forms-exclusao')
@@ -50,8 +52,8 @@ function showSectionRead() {
     sectionRead.style.display = 'block'
 }
 
-
-let iconUserLogado = document.getElementById("usuario-login");
+//Altera o icone ao lado do nome do usuário logado para o icone de log out
+let iconUserLogado = document.getElementById("usuario-logado");
 let iconLogOut = document.getElementById('usuario-log-out');
 iconUserLogado.addEventListener('mouseenter', () => {
     iconUserLogado.style.display = 'none';

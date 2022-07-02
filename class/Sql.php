@@ -38,34 +38,42 @@ class Sql extends PDO {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function atualizaDados($usuarioEdicao, $nomeEdicao = "", $senhaEdicao = "", $emailEdicao = ""){
+    public function atualizaDados($usuarioEdicao, $nomeEdicao, $senhaEdicao, $emailEdicao){
 
-        $stmt = $this->conn->prepare("SELECT * FROM tb_usuarios WHERE usernameusuario = :usuarioEdicao;");
-        $stmt->bindValue(':usuarioEdicao', $usuarioEdicao);
-        $stmt->execute();
+        //Verifica se o novo nome de usuário está disponivel
+        $usernameDisonivel = $this->validaUsername($nomeEdicao);
 
-        $dataUserUpdate = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $idUserUpdate = $dataUserUpdate[0]['idusuario'];
+        if ($usernameDisonivel == true){
+            $alert = "Novo nome de usuário indisponivel";
+        }else{
+            $stmt = $this->conn->prepare("SELECT * FROM tb_usuarios WHERE usernameusuario = :usuarioEdicao;");
+            $stmt->bindValue(':usuarioEdicao', $usuarioEdicao);
+            $stmt->execute();
 
-        // Atualiza Nome
-        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET usernameusuario = :nomeEdicao WHERE idusuario = :idUserUpdate;");
-        $stmt->bindValue(':nomeEdicao', $nomeEdicao);
-        $stmt->bindValue(':idUserUpdate', $idUserUpdate);
-        $stmt->execute();
-        
-        // Atualiza Senha
-        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET passwordussuario = :senhaEdicao WHERE idusuario = :idUserUpdate;");
-        $stmt->bindValue(':senhaEdicao', $senhaEdicao);
-        $stmt->bindValue(':idUserUpdate', $idUserUpdate);
-        $stmt->execute();
+            $dataUserUpdate = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $idUserUpdate = $dataUserUpdate[0]['idusuario'];
 
-        // Atualiza E-mail
-        $stmt = $this->conn->prepare("UPDATE tb_usuarios SET emailusuario = :emailEdicao WHERE idusuario = :idUserUpdate;");
-        $stmt->bindValue(':emailEdicao', $emailEdicao);
-        $stmt->bindValue(':idUserUpdate', $idUserUpdate);
-        $stmt->execute();
+            // Atualiza Nome
+            $stmt = $this->conn->prepare("UPDATE tb_usuarios SET usernameusuario = :nomeEdicao WHERE idusuario = :idUserUpdate;");
+            $stmt->bindValue(':nomeEdicao', $nomeEdicao);
+            $stmt->bindValue(':idUserUpdate', $idUserUpdate);
+            $stmt->execute();
+            
+            // Atualiza Senha
+            $stmt = $this->conn->prepare("UPDATE tb_usuarios SET passwordussuario = :senhaEdicao WHERE idusuario = :idUserUpdate;");
+            $stmt->bindValue(':senhaEdicao', $senhaEdicao);
+            $stmt->bindValue(':idUserUpdate', $idUserUpdate);
+            $stmt->execute();
 
-        $alert = "Atualização concluida com sucesso!";
+            // Atualiza E-mail
+            $stmt = $this->conn->prepare("UPDATE tb_usuarios SET emailusuario = :emailEdicao WHERE idusuario = :idUserUpdate;");
+            $stmt->bindValue(':emailEdicao', $emailEdicao);
+            $stmt->bindValue(':idUserUpdate', $idUserUpdate);
+            $stmt->execute();
+
+            $alert = "Atualização concluida com sucesso!";
+        }
+
         return $alert;
 
     }
@@ -110,7 +118,10 @@ class Sql extends PDO {
         foreach ($listUsersCad as $key => $value) {
 
             // echo json_encode($listUsersCad);
-            
+
+            //retorna 0 - se as duas strings forem iguais.
+            //<0 - se string1 for menor que string2.
+            //0 - se string1 for maior que string2.
             if (strcasecmp($listUsersCad[$key]['usernameusuario'], $username) == 0) {
                 $res = true;
             }
