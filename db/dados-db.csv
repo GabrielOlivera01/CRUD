@@ -1,0 +1,11 @@
+idusuario,usernameusuario,passwordussuario,emailusuario,hourcadastro,privilegio
+"01,root,root,root@email.com.br,""2022-06-14 21:40:19"",1"
+"50,NewUser,123456,newuser@email.com.br,""2022-06-08 19:32:45"",0"
+"51,maria,m45574,edit.email@teste.com,""2022-06-08 20:14:32"",0"
+"52,luana.santos,ls154#@#$,luana.santos@email.com,""2022-06-08 20:14:55"",0"
+"53,carla.silva,c1145578,carla.silva@email.com,""2022-06-08 20:15:15"",0"
+"54,joao.vitor,123456,joao@email.com,""2022-06-08 20:15:32"",0"
+"62,test,test,test@test.com,""2022-06-13 21:32:06"",0"
+"65,vinivius.carlos,vc1235,vinivius.carlos@email.com,""2022-06-08 19:32:10"",0"
+"70,novousuario,nu1235,novo.usuario@email.com,""2022-06-18 10:12:41"",NULL"
+"72,Kleber.Oliveira,ko1235,kleber.oliveira@email.com.br,""2022-06-26 11:15:09"",NULL"
